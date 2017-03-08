@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import manageTodo from './reducers/manageTodo';
+import manageTodo from './reducers/manageTodos';
 import createStore from './createStore';
 
 let store = createStore(manageTodo);
