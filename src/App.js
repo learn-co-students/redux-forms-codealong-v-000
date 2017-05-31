@@ -6,6 +6,11 @@ class App extends Component {
     return (
       <div className="App">
         <CreateTodo store={this.props.store} />
+        <ul>
+          {this.props.store.getState().todos.map((e, i) =>
+            <li key={i}>{e}</li>
+          )}
+        </ul>
       </div>
     );
   }
