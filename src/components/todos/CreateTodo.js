@@ -14,10 +14,18 @@ class CreateTodo extends Component {
     });
   };
 
+  handleSubmit(event) {
+    event.preventDefault();
+    this.props.store.dispatch({
+      type: 'ADD_TODO',
+      todo: this.state,
+    });
+  }
+
   render() {
     return(
       <div>
-        <form>
+        <form onSubmit={(event) => this.handleSubmit(event)}>
           <p>
             <label>add todo</label>
             <input type="text" onChange={(event) => this.handleChange(event)} />
