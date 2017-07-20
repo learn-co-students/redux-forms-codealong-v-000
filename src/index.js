@@ -8,7 +8,7 @@ let store = createStore(manageTodo);
 
 export function render(){
   ReactDOM.render(
-    <App store={store} />,
+    <App store={store} />, //passing the store as prop to App
     document.getElementById('root')
   );
 };
