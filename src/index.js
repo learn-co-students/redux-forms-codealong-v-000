@@ -6,11 +6,33 @@ import createStore from './createStore';
 
 let store = createStore(manageTodo);
 
-export function render(){
-  ReactDOM.render(
-    <App store={store} />,
-    document.getElementById('root')
+constructor() {
+  super();
+  this.state = {
+    text: '',
+  };
+}
+
+render(){
+  return(
+    <div>
+      <form>
+        <p>
+          <label>add todo</label>
+          <input type="text" onChange={(event) => this.handleChange(event)}/>
+        </p>
+        <input type="submit" />
+      </form>
+      {this.state.text}
+    </div>
   );
+}
+
+handleChange(event) {
+  this.setState({
+    text: event.target.value
+  });
 };
 
-store.dispatch({type: '@@INIT'});
+
+store.dispatch({ type: '@@INIT' });
