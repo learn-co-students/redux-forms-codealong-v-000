@@ -4,17 +4,7 @@ export default function manageTodo(state = {
 
   switch (action.type){
     case 'ADD_TODO':
-    let todo = "// <user entered text>"
-    //get user input text
-    //assign to variable 'todo:'
-    //use variable to pass to store
-    //return updated state
-debugger
-    state = state.todos, { 
-        todo: todo,
-      }
-    return state 
-
+      return { todos: state.todos.concat(action.todo.text) };
     default: 
     return state;
   }
