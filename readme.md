@@ -210,9 +210,9 @@ export function render() {
 store.dispatch({ type: '@@INIT' });
   ```
 
-In the top line, you can see that we create the store with a reducer. Then, further down, we pass through the store as a prop to our app.  Our __App__ component passes the store as a prop down to the __CreateTodo__ component. So if you put a debugger right after the line render in __CreateTodo__, and type in this.props in the code, you can see we have access to the store as one of the props.
+In the top line, you can see that we create the store with a reducer. Then, further down, we pass through the store as a prop to our app.  Our __App__ component passes the store as a prop down to the __CreateTodo__ component. So if you put a debugger right after the line render in __CreateTodo__, and type in this.props in the console, you can see we have access to the store as one of the props.
 
-Why did pass our store in as one of the props?  We did it so that on submit we can call `this.props.store.dispatch({ type: 'ADD_TODO', todo: this.state })`, and send our store with our component's state.  
+Why did we pass our store in as one of the props?  We did it so that on submit we can call `this.props.store.dispatch({ type: 'ADD_TODO', todo: this.state })`, and send our store with our component's state.  
 
   Ok, let's implement this -- it will make more sense as we move along. First, we need to update the __render()__ function of the __CreateTodo__ component to call a callback on the submission of a form:
 
@@ -248,7 +248,7 @@ handleSubmit(event) {
 
 ```
 
-Notice that our `action.todo` is this.state. This is because our state always holds the value of our input, and we want to pass that value that value into our dispatched action. So for example, if a user types in "add groceries", we will be dispatching, `{ type: 'ADD_TODO', todo: { text: "add groceries" } }`.
+Notice that our `action.todo` is this.state. This is because our state always holds the value of our input, and we want to pass that value into our dispatched action. So for example, if a user types in "add groceries", we will be dispatching, `{ type: 'ADD_TODO', todo: { text: "add groceries" } }`.
 
 Now click the submit button! Yea, nothing happens. At least nothing shows up on the page. Now open up your browser's console. You'll see that we are still logging our actions, and we are dispatching an action called ADD_TODO. If you inspect that action, you should see your input value in the action.todo. So things are happening. However our state is not being updated, and we are not displaying those updates. So first, let's make sure that each time we dispatch an action we update the state.
 
