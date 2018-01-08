@@ -11,6 +11,8 @@ export function render(){
     <App store={store} />,
     document.getElementById('root')
   );
-};
+}
 
 store.dispatch({type: '@@INIT'});
+
+
