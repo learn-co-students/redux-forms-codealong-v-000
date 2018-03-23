@@ -1,13 +1,18 @@
-import React, { Component } from 'react'
+import React, { Component } from "react"
 
 class CreateTodo extends Component {
   render() {
-    return(
+    return (
       <div>
-        Create Todo Component
+        <form>
+          <p>
+            <label>add todo</label>
+            <input type="text" />
+          </p>
+        </form>
       </div>
     )
   }
 }
 
-export default CreateTodo;
+export default CreateTodo
