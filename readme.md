@@ -1,4 +1,4 @@
-Creating Items with Redux
+npm Creating Items with Redux
 ==============
 
 With this lesson we'll begin our journey in implementing the CRUD actions while using the Redux pattern.  By the end of this lesson, you will be able to:
