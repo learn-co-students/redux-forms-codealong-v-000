@@ -5,10 +5,8 @@ export default function createStore(reducer){
 
   function dispatch(action){
     state = reducer(state, action);
-    console.log(`the action is`);
-    console.log(action);
-    console.log(`the state is`);
-    console.log(state);
+    console.log(`the action is`, action);
+    console.log(`the state is`, state);
     render();
   };
 
