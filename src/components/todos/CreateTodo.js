@@ -41,7 +41,10 @@ class CreateTodo extends Component {
           <p>
             <label>add todo</label>
             {/* Every time the input is changed, we want to change the state by adding an onChange */}
-            <input type="text" onChange={(event) => this.handleChange(event)}/>
+            <input 
+              type="text"
+              value={this.state.text} //makes sure textbox updates once submitted
+              onChange={(event) => this.handleChange(event)} />
           </p>
           <input type="submit" />
         </form>
