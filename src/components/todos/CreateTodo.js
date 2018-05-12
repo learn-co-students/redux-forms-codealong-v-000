@@ -26,6 +26,10 @@ class CreateTodo extends Component {
       //our state always holds the value of our input, and we want to pass that value that value into our dispatched action
       // if a user types in "add groceries", we will be dispatching, { type: 'ADD_TODO', todo: { text: "add groceries" } }
     });
+    //erase out old text in textbox
+    this.setState({
+      text: '',
+    });
   }
 
   render() {
