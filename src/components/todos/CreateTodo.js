@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
 
 class CreateTodo extends Component {
 
@@ -16,11 +17,18 @@ class CreateTodo extends Component {
       text: event.target.value
     });
   };
+  
+  // Note : Function to handle form submission
+  handleSubmit = event => {
+    event.preventDefault();
+    this.props.addTodo(this.state)
+  }
+
 
   render() {
     return(
     <div>
-      <form>
+      <form onSubmit={ event => this.handleSubmit(event) }>
         <p>
           <label>add todo</label>
           
@@ -37,4 +45,14 @@ class CreateTodo extends Component {
   }
 }
 
-export default CreateTodo;
+
+// Note : Could use separate action file and import in, but not needed for right now (and easier to understand here without)
+mapDispatchToProps = dispatch => {
+  return {
+    addTodo: formData => dispatch({ type: "ADD_TODO", payload: formData })
+  }
+}
+
+
+// Note : Connecting component to store and getting the dispatch function but don't need "mapStateToProps" (null) because this component doesn't need to directly access/change global state
+export default connect(null, mapDispatchToProps)(CreateTodo);
