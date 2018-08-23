@@ -21,7 +21,13 @@ class CreateTodo extends Component {
   // Note : Function to handle form submission
   handleSubmit = event => {
     event.preventDefault();
+    
+    // Note : This method uses "mapDispatchToProps"
     this.props.addTodo(this.state)
+    
+    // Note : Alternate export method (to the above) as dispatch is automatically added as a prop
+    // this.props.dispatch({ type: 'ADD_TODO', payload: this.state })
+
   }
 
 
@@ -56,3 +62,6 @@ mapDispatchToProps = dispatch => {
 
 // Note : Connecting component to store and getting the dispatch function but don't need "mapStateToProps" (null) because this component doesn't need to directly access/change global state
 export default connect(null, mapDispatchToProps)(CreateTodo);
+
+// Note : Alternate to the above if using the alt-export method in "handleSubmit" (since dispatch is automatically added to props)
+// export default connect()(CreateTodo);
