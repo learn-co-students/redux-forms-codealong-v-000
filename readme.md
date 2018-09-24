@@ -5,7 +5,7 @@
 With this lesson we'll begin our journey in implementing the CRUD actions while
 using the Redux pattern.  By the end of this lesson, you will be able to:
 
-  * Take user input from our __React__ application and send information to __Redux__
+  * Take user input from our __act__ application and send information to __Redux__
 
 ## Our Goal
 
