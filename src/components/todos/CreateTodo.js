@@ -1,13 +1,52 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
 
 class CreateTodo extends Component {
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     text: '',
+  //   };
+  // }
+  state = {
+    text: ''
+  }
+
+  handleChange(event) {
+    this.setState({
+      text: event.target.value
+    });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    this.props.addTodo(this.state)
+  }
+
   render() {
     return(
       <div>
-        Create Todo Component
+        <form onSubmit={ event => this.handleSubmit(event) }>
+          <p>
+            <label>add todo</label>
+            <input type="text" onChange={(event) => this.handleChange(event)} value={this.state.text}/>
+          </p>
+          <input type="submit" />
+        </form>
+        {this.state.text}
       </div>
-    )
+    );
+  }
+};
+
+mapDispatchToProps = dispatch => {
+  return {
+    addTodo: formData => dispatch({ type: "ADD_TODO", payload: formData })
   }
 }
 
-export default CreateTodo;
+// export default CreateTodo;
+// export default connect()(CreateTodo);
+export default connect(null, mapDispatchToProps)(CreateTodo);
+ // Since we only need to dispatch an action here and not getting information from our store,
+ // we can use null instead of mapStateToProps as the first argument.
