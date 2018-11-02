@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
 let store = createStore(manageTodo);
+store.dispatch({type: '@@INIT'});
 
 ReactDOM.render(
   <Provider store={store}>
