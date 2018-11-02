@@ -27,6 +27,7 @@ class CreateTodo extends Component {
           </p>
           <input type="submit" />
         </form>
+        {this.state.text}
       </div>
     );
   }
