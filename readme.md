@@ -1,6 +1,6 @@
 # Creating Items with Redux
 
-## Objectives
+## Objectives beep
 
 With this lesson we'll begin our journey in implementing the CRUD actions while
 using the Redux pattern.  By the end of this lesson, you will be able to:
