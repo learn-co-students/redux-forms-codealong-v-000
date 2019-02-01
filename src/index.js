@@ -1,3 +1,4 @@
+import { connect } from 'react-redux';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
@@ -13,3 +14,6 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
+
+
+export default connect(null, mapDispatchToProps)(CreateTodo);
