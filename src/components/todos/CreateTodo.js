@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
  
 class CreateTodo extends Component {
     state = {
-        text: ''
+        text: ' '
     };
  
     handleChange = event => {
