@@ -7,6 +7,12 @@ import { createStore } from 'redux';
 
 let store = createStore(manageTodo);
 
+const mapDispatchToProps = dispatch => {
+  return {
+    addTodo: formData => dispatch({ type: 'ADD_TODO', payload: formData })
+  }
+}
+
 ReactDOM.render(
   <Provider store={store}>
     <App />
