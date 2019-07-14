@@ -7,6 +7,7 @@ import { createStore } from 'redux';
 
 let store = createStore(manageTodo);
 
+//Pass the store into the Provider. This will allow us access when we connect our components.
 ReactDOM.render(
   <Provider store={store}>
     <App />
