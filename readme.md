@@ -5,6 +5,7 @@
 With this lesson, we'll begin our journey in implementing the CRUD actions while
 using the Redux pattern.
 
+
 ## Objectives
 
 By the end of this lesson, you will be able to:
