@@ -14,7 +14,7 @@ class CreateTodo extends Component {
  
   handleSubmit = event => {
     event.preventDefault();
-    this.props.dispatch({ type: 'ADD_TODO', payload: this.state });
+    this.props.addTodo(this.state);
   };
  
   render() {
@@ -23,11 +23,11 @@ class CreateTodo extends Component {
         <form onSubmit={event => this.handleSubmit(event)}>
           <p>
             <label>add todo</label>
-            <input
-              type="text"
-              onChange={event => this.handleChange(event)}
-              value={this.state.text}
-            />
+              <input
+                type="text"
+                onChange={event => this.handleChange(event)}
+                value={this.state.text}
+              />
           </p>
           <input type="submit" />
         </form>
@@ -36,4 +36,53 @@ class CreateTodo extends Component {
   }
 }
  
-export default connect()(CreateTodo);
+const mapDispatchToProps = dispatch => {
+  return {
+    addTodo: formData => dispatch({ type: 'ADD_TODO', payload: formData })
+  };
+};
+ 
+export default connect(
+  null,
+  mapDispatchToProps
+)(CreateTodo);
+
+// Below is simplified way to do the same as above minus dispatch
+
+// class CreateTodo extends Component {
+//   state = {
+//     text: ''
+//   };
+ 
+//   handleChange = event => {
+//     this.setState({
+//       text: event.target.value
+//     });
+//   };
+ 
+//   handleSubmit = event => {
+//     event.preventDefault();
+//     this.props.dispatch({ type: 'ADD_TODO', payload: this.state });
+//   };
+ 
+//   render() {
+//     return (
+//       <div>
+//         <form onSubmit={event => this.handleSubmit(event)}>
+//           <p>
+//             <label>add todo</label>
+//             <input
+//               type="text"
+//               onChange={event => this.handleChange(event)}
+//               value={this.state.text}
+//             />
+//           </p>
+//           <input type="submit" />
+//         </form>
+//       </div>
+//     );
+//   }
+// }
+ 
+// export default connect()(CreateTodo);
+
