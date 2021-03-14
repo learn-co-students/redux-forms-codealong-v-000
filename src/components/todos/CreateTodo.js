@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { throws } from 'assert'
+// import { throws } from 'assert'
 import { connect } from 'react-redux'
 
 // NOTE: there is an alternative was to write this.
+// This is where we build our Form
 
 class CreateTodo extends Component {
 
@@ -29,13 +30,14 @@ class CreateTodo extends Component {
         <form onSubmit={ event => this.handleSubmit(event) }> 
           <p>
             <label>add todo</label>
-            {/* When ever the input changes, we want to change the state
+            {/* Whenever the input changes, we want to change the state
              by adding an onChange event listner here. */}
             <input type="text" onChange={this.handleChange} value={this.state.text}/>
           </p>
           <input type="submit" />
         </form>
-        {this.state.text}
+        {this.state.text} 
+  {/* To Totally able to control form. So with every letter input... It calls the setState in hanldeChange */}
       </div>
     )
   }
@@ -46,6 +48,8 @@ const mapDispatchToProps = dispatch => {
     addTodo: formData => dispatch({ type: 'ADD_TODO', payload: formData })
 
     // {/* 
+      //   Our action for line 48 is { type: 'ADD_TODO', payload: formData 
+
     //   NOTE: payLOad is small letter.
     // On submission of the form in our component, 
     // we want to send the value we've captured in the local state to be added to our Redux store. 
